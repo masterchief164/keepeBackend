@@ -5,7 +5,7 @@ const postRouter = require("./router/router.js")
 const app = express();
 require("dotenv").config()
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors());
 app.use("/api", postRouter);
@@ -18,5 +18,5 @@ mongoose.connect(process.env.URL, {
 
 });
 
-app.listen(3000, () => console.log("listening on port 3000"));
+app.listen(process.env.PORT || 3000, () => console.log("listening on port 3000"));
 mongoose.set("useFindAndModify", false);
