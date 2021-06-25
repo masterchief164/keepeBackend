@@ -16,7 +16,10 @@ mongoose.connect(process.env.URL, {
 }).then(() => {
     console.log("Connected to database");
 
-});
+}).catch(err=>{
+    console.log(err);
+    console.log(process.env.URL);
+})
 
 app.listen(process.env.PORT || 3000, () => console.log("listening on port 3000"));
 mongoose.set("useFindAndModify", false);
